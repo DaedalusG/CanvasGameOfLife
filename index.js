@@ -1,9 +1,9 @@
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
-const resolution = 10;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const resolution = 15;
+canvas.width = window.outerWidth;
+canvas.height = window.outerHeight;
 
 const COLS = canvas.width / resolution;
 const ROWS = canvas.height / resolution;
@@ -11,7 +11,7 @@ const ROWS = canvas.height / resolution;
 // makes randomly populated grid
 function buildGrid() {
     return new Array(COLS).fill(null)
-        .map(() => new Array(COLS).fill(null)
+        .map(() => new Array(ROWS).fill(null)
             .map(() => Math.floor(Math.random() * 2)));
 }
 
@@ -66,14 +66,13 @@ function nextGen(gird) {
     return nextGen
 }
 
+//execute functions to produce and render game of life
+let grid = buildGrid();
+requestAnimationFrame(update);
+
 //renders grid on every generation
 function update() {
     grid = nextGen(grid);
     makeLifeBox(grid);
     requestAnimationFrame(update);
 }
-
-
-//execute functions to produce and render game of life
-let grid = buildGrid();
-requestAnimationFrame(update);
