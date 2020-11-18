@@ -2,8 +2,8 @@ const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
 const resolution = 10;
-canvas.width = 800;
-canvas.height = 800;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const COLS = canvas.width / resolution;
 const ROWS = canvas.height / resolution;
@@ -77,7 +77,3 @@ function update() {
 //execute functions to produce and render game of life
 let grid = buildGrid();
 requestAnimationFrame(update);
-
-
-
-console.log(grid)
