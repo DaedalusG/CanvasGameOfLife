@@ -102,7 +102,7 @@ function nextGen(grid) {
 
 //execute functions to produce and render game of life
 let grid = buildGrid();
-makeLifeBox(grid)
+// makeLifeBox(grid)
 requestAnimationFrame(update);
 // setTimeout(update, 5000)
 
