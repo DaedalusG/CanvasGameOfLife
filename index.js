@@ -23,7 +23,7 @@ function makeLifeBox(grid) {
 
             ctx.beginPath();
             ctx.rect(col * resolution, row * resolution, resolution, resolution)
-            ctx.fillStyle = cell ? 'black' : 'white';
+            ctx.fillStyle = cell ? 'lightgreen' : 'darkgreen';
             ctx.fill();
             ctx.stroke();
         }
