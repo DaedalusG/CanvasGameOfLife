@@ -2,11 +2,11 @@ const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
 
 const resolution = 15;
-canvas.width = window.outerWidth;
-canvas.height = window.outerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const COLS = canvas.width / resolution;
-const ROWS = canvas.height / resolution;
+const COLS = Math.round(canvas.width / resolution);
+const ROWS = Math.round(canvas.height / resolution);
 
 // makes randomly populated grid
 function buildGrid() {
@@ -39,6 +39,7 @@ function nextGen(gird) {
         for (let row = 0; row < grid[col].length; row++) {
             const cell = grid[col][row];
             let numNeighbours = 0;
+
             for (let i = -1; i < 2; i++) {
                 for (let j = -1; j < 2; j++) {
                     if (i === 0 && j === 0) {
